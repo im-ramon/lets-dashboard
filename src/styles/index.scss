@@ -224,6 +224,15 @@ form#messaging {
     }
 }
 
+section#home {
+    background: #00000000;
+    margin-top: 2rem;
+
+    h4 {
+        text-align: right;
+    }
+}
+
 .button-primary {
     background: $PRIMARY;
     color: $TEXT;
