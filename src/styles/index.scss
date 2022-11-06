@@ -71,6 +71,7 @@ aside {
     padding: 1rem;
     border: 1px solid $NEUTRAL_4;
     box-shadow: 13px 11px 21px -8px #000000;
+    z-index: 10;
 }
 
 #aside-footer {
@@ -163,7 +164,87 @@ nav {
 }
 
 main {
-    background: rgba(0, 0, 255, 0.13);
+    background: #00000060;
+    border: 1px solid $NEUTRAL_4;
+    border-left: none;
     padding: 1.3rem;
+    padding-left: 3rem;
     flex: 1;
+}
+
+.page-title {
+    h1 {
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
+    h3 {
+        color: $NEUTRAL_2;
+    }
+}
+
+form#messaging {
+    padding: 0;
+    margin-top: 2rem;
+    width: 67%;
+    border: 1px solid $NEUTRAL_4;
+    padding: 1rem 1rem;
+
+    label {
+        margin-bottom: 0.3rem;
+        padding-left: 0.5rem;
+    }
+
+    fieldset {
+        display: flex;
+        flex-direction: column;
+        border: none;
+        padding-left: 0;
+        margin-bottom: 0.7rem;
+    }
+
+    input {
+        background: $BLACK;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid $PRIMARY;
+        color: $TEXT;
+        height: 2rem;
+        padding-left: 0.5rem;
+    }
+
+    h3 {
+        padding: 0.3rem 0.7rem;
+        border-bottom: 1px solid $PRIMARY;
+    }
+
+    h4 {
+        margin: 0.7rem 0 1rem 0;
+        color: $NEUTRAL_2;
+        text-align: right;
+    }
+}
+
+.button-primary {
+    background: $PRIMARY;
+    color: $TEXT;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    border: none;
+    margin-top: 2rem;
+    overflow: hidden;
+    @include transition();
+
+    &:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+        @include transition();
+    }
+    img {
+        // transform: translateX(2rem);
+        filter: invert(1);
+        margin-left: 0.5rem;
+    }
 }
