@@ -237,6 +237,100 @@ section#home {
     margin-top: 2rem;
 }
 
+#dashboard {
+    display: flex;
+    flex-wrap: wrap;
+
+    div {
+        display: flex;
+        width: 100%;
+    }
+
+    .line1 {
+        display: flex;
+        justify-content: space-between;
+        min-height: 8rem;
+    }
+
+    .line2 {
+        display: flex;
+        justify-content: space-between;
+        flex: 1;
+        min-height: 16rem;
+        max-height: 18rem;
+    }
+
+    .dashboard-item {
+        background: $BACKGROUND_1;
+        border: 1px solid $NEUTRAL_4;
+        margin: 8px;
+        width: 100%;
+        flex-direction: column;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        @include transition();
+
+        &.list {
+            overflow-y: scroll;
+            position: relative;
+
+            h3 {
+                z-index: 2;
+                position: sticky;
+                top: 0;
+            }
+
+            &::-webkit-scrollbar {
+                width: 12px; /* width of the entire scrollbar */
+            }
+
+            &::-webkit-scrollbar-track {
+                background: #151515; /* color of the tracking area */
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: $PRIMARY; /* color of the scroll thumb */
+                border-radius: 20px; /* roundness of the scroll thumb */
+                border: 3px solid #0a0909; /* creates padding around scroll thumb */
+            }
+
+            ul {
+                width: 100%;
+                list-style: square;
+            }
+        }
+
+        &:hover {
+            @include transition();
+            transform: scale(1.05);
+            box-shadow: 13px 11px 21px -8px #0000006b;
+            border-color: $PRIMARY;
+        }
+
+        h2 {
+            text-align: right;
+            width: 100%;
+            font-size: 1.7rem;
+            padding-right: 2rem;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1rem !important;
+            text-align: left;
+            width: 100%;
+            color: $TEXT;
+            font-size: 1.1rem;
+            background: $BACKGROUND_2;
+            padding: 0.4em 1rem 0.3rem 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid $NEUTRAL_4;
+        }
+    }
+}
+
 .button-primary {
     background: $PRIMARY;
     color: $TEXT;
