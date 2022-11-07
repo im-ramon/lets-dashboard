@@ -237,9 +237,37 @@ section#home {
     margin-top: 2rem;
 }
 
+#header-dashboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+        padding: 0.3rem;
+        width: 2rem;
+        cursor: pointer;
+        margin-right: 1rem;
+        filter: invert(30%) sepia(90%) saturate(732%) hue-rotate(322deg) brightness(105%) contrast(78%);
+        @include transition();
+        margin-top: auto;
+
+        &:hover {
+            @include transition();
+            transform: rotate(360deg);
+        }
+    }
+}
+
 #dashboard {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 2rem;
+    img {
+        filter: invert(1);
+        width: 8rem;
+        margin: 0 auto;
+    }
 
     div {
         display: flex;
