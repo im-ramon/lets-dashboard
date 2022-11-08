@@ -23,6 +23,22 @@ $INFO: #17a2b8;
     transition: all 0.3s ease-in-out;
 }
 
+* {
+    &::-webkit-scrollbar {
+        width: 12px; /* width of the entire scrollbar */
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #151515; /* color of the tracking area */
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $PRIMARY; /* color of the scroll thumb */
+        border-radius: 20px; /* roundness of the scroll thumb */
+        border: 3px solid #0a0909; /* creates padding around scroll thumb */
+    }
+}
+
 body {
     min-height: 100vh;
     color: $TEXT;
@@ -263,6 +279,7 @@ section#home {
     display: flex;
     flex-wrap: wrap;
     margin-top: 2rem;
+
     img {
         filter: invert(1);
         width: 8rem;
@@ -359,6 +376,36 @@ section#home {
     }
 }
 
+@media (max-width: 800px) {
+    main {
+        padding-left: 1.3rem;
+        border-left: 1px solid $NEUTRAL_4;
+    }
+
+    form#messaging {
+        width: 100%;
+    }
+
+    #dashboard {
+        .line1,
+        .line2 {
+            flex-direction: column;
+
+            .dashboard-item {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    }
+
+    #root {
+        overflow-y: scroll;
+    }
+
+    aside {
+        width: 100%;
+    }
+}
 .button-primary {
     background: $PRIMARY;
     color: $TEXT;

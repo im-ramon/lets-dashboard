@@ -9,7 +9,7 @@ function Dashboard() {
     const [totalUsers, setTotalUsers] = useState(0)
     const [totalRelapses, setTotalRelapses] = useState(0)
     const [totalReasons, setTotalReasons] = useState(0)
-    const [listaReasons, setListaReasons] = useState([{ reason: "" }])
+    const [listaReasons, setListaReasons] = useState([{ reason: "Ainda não há nada por aqui." }])
     const [isLoading, setIsLoading] = useState(false)
     const [chartData, setChartData] = useState([{}])
 
