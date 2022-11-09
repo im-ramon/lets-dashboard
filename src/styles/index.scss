@@ -98,19 +98,23 @@ aside {
     padding: 0.3rem;
     display: flex;
     align-items: center;
-    flex-direction: column;
     cursor: default;
+    align-items: center;
+    padding: 0.3rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 13px 11px 21px -8px #000000;
+    @include transition();
 
-    p {
-        text-align: center;
-        color: $SEMANTIC_3;
-        display: block;
-        width: 100%;
+    &:hover {
+        @include transition();
+        box-shadow: 13px 11px 21px 0px #000000;
+        transform: scale(1.1);
+    }
 
-        a {
-            color: $TEXT;
-            font-weight: bold;
-        }
+    img {
+        filter: invert(1);
+        margin-left: 0.3rem;
     }
 }
 
@@ -237,6 +241,10 @@ form#messaging {
         margin: 0.7rem 0 1rem 0;
         color: $NEUTRAL_2;
         text-align: right;
+    }
+
+    #chave {
+        background: #dc353515;
     }
 }
 
@@ -372,6 +380,53 @@ section#home {
             padding: 0.4em 1rem 0.3rem 1rem;
             margin-bottom: 1rem;
             border-bottom: 1px solid $NEUTRAL_4;
+        }
+    }
+}
+
+#login_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login_area {
+    background: #00000060;
+    border: 1px solid $NEUTRAL_4;
+    width: 90%;
+    max-width: 512px;
+    box-shadow: 13px 11px 21px -8px #000000;
+    padding: 2rem;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+
+    #logo_area {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        span {
+            font-size: 1.3rem;
+            margin-left: 0.5rem;
+        }
+
+        img {
+            width: 40px;
+        }
+    }
+
+    form#messaging h3 {
+        font-size: 1.3rem;
+    }
+
+    form {
+        width: 100%;
+
+        .button-primary {
+            margin: 1.3rem auto;
         }
     }
 }

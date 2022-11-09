@@ -10,6 +10,7 @@ import loading from '../assets/images/svg/loading.svg'
 function Messaging() {
     const [messageTitle, setMessageTitle] = useState<string>('')
     const [messageBody, setMessageBoby] = useState<string>('')
+    const [chave, setChave] = useState<string>('')
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
     function handleChangeTitle(event: any) {
@@ -27,8 +28,8 @@ function Messaging() {
             setIsLoading(true)
             await api.post('/send_push_notification',
                 {
-                    user: "leticia",
-                    password: "123",
+                    user: "$2a$12$1KO/tU7YiiF79WnTvni49uNpZpttX8/46Ofl4g7flmmAEfBKdBHO6",
+                    password: chave,
                     title: messageTitle,
                     body: messageBody
 
@@ -46,8 +47,21 @@ function Messaging() {
                     });
                     setMessageTitle('')
                     setMessageBoby('')
+                    setChave('')
                 })
-                .catch(e => console.log(e))
+                .catch(e => {
+                    toast.error(`Desculpe! Não foi possível enviar a mensagem.`, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "dark",
+                    });
+                    console.log(e)
+                })
                 .finally(() => { setIsLoading(false) })
 
 
@@ -81,6 +95,11 @@ function Messaging() {
                 <fieldset>
                     <label htmlFor="">Corpo de mensagem</label>
                     <input type="text" name="messageBody" id="messageBody" value={messageBody} onChange={handleChangeBody} />
+                </fieldset>
+
+                <fieldset>
+                    <label htmlFor="">Chave de segurança</label>
+                    <input type="text" name="chave" id="chave" value={chave} onChange={(e) => { setChave(e.target.value) }} />
                 </fieldset>
 
                 <button className="button-primary" onClick={handleSend}>

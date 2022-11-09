@@ -1,7 +1,10 @@
 import React, { useState, useEffect, createContext, ReactNode } from 'react';
+import { api } from '../services/api';
 
 interface AppContextData {
-    user: string;
+    user: object;
+    setUser: React.Dispatch<React.SetStateAction<object>>
+    signOut: () => Promise<void>
 }
 
 interface AppProviderProps {
@@ -12,10 +15,18 @@ export const AppContext = createContext({} as AppContextData)
 
 
 export function AppProvider({ children }: AppProviderProps) {
-    const [user, setUser] = useState<string>('')
+    const [user, setUser] = useState<object>({})
+
+    async function signOut() {
+        api.defaults.headers.common['Authorization'] = ''
+        setUser({})
+    }
+
     return (
         <AppContext.Provider value={{
-            user
+            user,
+            setUser,
+            signOut
         }}>
             {children}
         </AppContext.Provider>

@@ -1,24 +1,20 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import './styles/index.scss'
 import { RouterProvider, Route, BrowserRouter } from "react-router-dom";
-import Aside from './components/Aside';
+import Login from './views/Login';
 import Router from './routes/routes';
 import { AppContext } from './contexts/appContext';
-import { AppProvider } from './contexts/appContext';
 
 function App() {
-    const { } = useContext(AppContext)
+    const { user } = useContext(AppContext)
+
+    useEffect(() => {
+        console.log('user:', user)
+    }, [])
 
     return (
-        <AppProvider>
-            <BrowserRouter>
-                <Aside />
-                <main>
-                    <Router />
-                </main>
-            </BrowserRouter>
-        </AppProvider>
+        user.hasOwnProperty('token') ? <Router /> : <Login />
     )
 }
 
